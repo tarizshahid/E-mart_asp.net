@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <nav aria-label="breadcrumb" class="alert-success">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item "><a href='@Url.Action("Login", "Dashboard")'>Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Main</li>
+        </ol>
+    </nav>
+
+
+    <div class="alert alert-info">
+        <center>
+            Welcome, <b> @WebSecurity.CurrentUserName</b> <br />
+            <a href='@Url.Action("Signout","Account")' class="btn btn-danger" >Sign Out</a>
+        </center>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i class="fas fa-users"></i>
+                        User Management
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                    {
+                        <a href='@Url.Action("RegisterUser","Account")' class="btn btn-danger" style="width:100%;">Register New User</a>
+                    }
+                    <br />
+
+                    <hr />
+                    <a href='@Url.Action("ChangePassword", "Account")' class="btn btn-danger" style="width:100%;"> Change Password </a>
+                    <br />
+                    <hr />
+                    <a href='@Url.Action("UserProfile", "Account")' class="btn btn-danger" style="width:100%;"> Update Profile </a>
+                    <br />
+                    <hr />
+                    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                    {
+
+                        <a href='@Url.Action("AllUsers", "Account")' class="btn btn-danger" style="width:100%;"> All Users List</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <a href="~/Views/Account/ChangePassword.cshtml">~/Views/Account/ChangePassword.cshtml</a>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i class="fas fa-id-card"></i>
+                        Profile Management
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-body">
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <a href='@Url.Action("RegisterUser","Account")' class="btn btn-danger" style="width:100%;">Register New User</a>
+                        }
+                        <br />
+
+                        <hr />
+                        <a href='@Url.Action("ChangePassword", "Account")' class="btn btn-danger" style="width:100%;"> Change Password </a>
+                        <br />
+                        <hr />
+                        <a href='@Url.Action("UserProfile", "Account")' class="btn btn-danger" style="width:100%;"> Update Profile </a>
+                        <br />
+                        <hr />
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+
+                            <a href='@Url.Action("AllUsers", "Account")' class="btn btn-danger" style="width:100%;"> All Users List</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+    {
+        <a href='@Url.Action("RegisterUser","Account")'>Register New User</a> <span> | </span>
+    }
+
+    <a href='@Url.Action("ChangePassword", "Account")'> Change Password </a> <span> | </span>
+
+    <a href='@Url.Action("UserProfile", "Account")'> Update Profile </a>
+    if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+    {
+        <span> | </span>
+        <a href='@Url.Action("AllUsers", "Account")'> All Users List</a>
+    }
+
+}
+

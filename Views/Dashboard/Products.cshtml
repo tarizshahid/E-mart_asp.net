@@ -1,0 +1,58 @@
+﻿@*@Model List<MemberDemoApp.Models.ProductsClass>*@
+
+@{
+    ViewBag.Title = "Products";
+}
+<h2>Products</h2>
+    <div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <figure class="card card-product">
+                @if (item.ProductType == "Clothing  " || item.ProductType == "Cloting   ")
+                {
+                    <div class="img-wrap"><img src="https://www.jacketworld.co.nz/wp-content/uploads/Battle-Between-Leather-Jacket-and-Denim-Jacket-1.jpg"></div>
+                }
+                else if (item.ProductName == "IP Camera                                         ")
+                {
+                    <div class="img-wrap"><img src="https://www.tienda24hs.com/WebRoot/StoreES/Shops/62148069/5C47/508E/7E14/15C0/1419/0A0C/6D0A/941E/180230-camara-ip-hikvision-2-mpx-T24HWI-T220H-tienda24hs_ml.png"></div>
+                }
+                else {
+                    <div class="img-wrap"><img src="https://i.ytimg.com/vi/O-BlVq46hlE/maxresdefault.jpg"></div>
+
+                }
+
+                <figcaption class="info-wrap">
+                    <h4 class="title">@item.ProductName</h4>
+                    <p class="desc"></p>
+                    <div class="rating-wrap">
+                        <div>
+                            <i class="far fa-comments"></i> @item.randoom reviews
+                        </div>
+                        <div class="fa fa-weight"> Size : @item.Size</div>
+                    </div>
+                </figcaption>
+                <div class="bottom-wrap">
+                    @*<a href="" class="btn btn-sm btn-primary float-right">Order Now</a>
+                    @<button class="btn btn-sm btn-primary float-right" type="submit" value="Submit">Order Now</button>@*@
+                    @Html.ActionLink(
+                        "Order now",
+                        "Checkout",
+                        "Dashboard",
+                        new { UserName = @item.ProductName, Price = @item.Price, Size = @item.Size },
+                         new { @class = "btn btn-sm btn-primary float-right" });
+                    <div class="price-wrap h5">
+                        <span class="price-new">Price : @item.Price/-</span> <del class="price-old">Old Price : @item.randoom/-</del>
+                    </div>
+                </div>
+            </figure>
+        </div> 
+    }
+
+        </div> 
+
+
+<!--container.//-->
+
+<br>

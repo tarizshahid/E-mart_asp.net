@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using WebMatrix.WebData
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h5>Admin View</h5>
+    <p>
+        This is admin view. Welcome, <b> @WebSecurity.CurrentUserName</b> <br />
+        <a href='@Url.Action("Signout", "Account")' class="btn btn-danger">Singout</a>
+    </p>
+
+}
+

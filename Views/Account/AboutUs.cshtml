@@ -1,0 +1,29 @@
+﻿@model MemberDemoApp.Models.UserProfileModel
+
+@{
+    ViewBag.Title = "AboutUs";
+}
+
+<center> <h2>About Us</h2> </center>
+
+<div>
+   <hr />
+    <dl class="dl-horizontal" style="background-image: linear-gradient(to right,#7F8C8D,#D3D3D3)">   
+    </dl>
+</div>
+
+<table>
+    <tr> <th>
+            <img src="https://scontent.fkhi8-1.fna.fbcdn.net/v/t1.0-9/93313252_1992747120870082_7124202768025255936_o.jpg?_nc_cat=101&ccb=3&_nc_sid=174925&_nc_eui2=AeHoYVSvWNuKykSPz-VxKJS5A60fvEdsVa0DrR-8R2xVrcz-o1TrhPAiltk-d6eFoGnSmUN5B0axQP5t1nLF39Lc&_nc_ohc=4EMO1kH0DgsAX_L3_Ew&_nc_ht=scontent.fkhi8-1.fna&oh=c9757712b107c81c39406a883342e82a&oe=6057603C" height="600" width="900" />
+        </th>
+        <th>
+            <img src="https://scontent.fkhi8-1.fna.fbcdn.net/v/t1.0-9/77308438_2544591715827171_6322714965253816320_o.jpg?_nc_cat=110&ccb=3&_nc_sid=8bfeb9&_nc_eui2=AeEOzxqw3QTZUgm0K9ouIbLN07R1dIND6ujTtHV0g0Pq6FG-uyUriuA9UrTZluzlo18v7-hrmX9YMDIC4vDpeGCn&_nc_ohc=eiyvPxGVGbQAX9P8LEf&_nc_ht=scontent.fkhi8-1.fna&oh=8acc08f22164424b67bf0a529e7c560c&oe=6055819C" height="600" width="500"/>
+        </th>
+    </tr>
+    
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
